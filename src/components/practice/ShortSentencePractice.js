@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Card } from 'antd';
 import PracticeData from './PracticeData';
 import PracticeScreen from './PracticeScreen';
@@ -9,12 +8,18 @@ export default class ShortSentencePractice extends Component {
     super(props);
     this.state = {
       data: '',
+      dataEn: '',
+      textToRead:
+        'Welcome To TypeToKorean! 텍스트를 모두 작성하고 스페이스를 눌러주세요.',
       textToWrite: '소소하지만 확실한 행복.'.normalize('NFD'),
       textToWriteNotNormalized: '소소하지만 확실한 행복.',
       totaltime: 0,
       speed: 0,
       typo: 0,
       score: 0,
+      prevSpeed: 0,
+      prevTypo: 0,
+      prevScore: 0,
       textCountX: 0,
       textCountY: 0,
     };
@@ -22,58 +27,65 @@ export default class ShortSentencePractice extends Component {
     this.scoring = this.scoring.bind(this);
     this.postingResult = this.postingResult.bind(this);
     this.getTextToWrite = this.getTextToWrite.bind(this);
+    this.getTextToRead = this.getTextToRead.bind(this);
   }
 
   async componentDidMount() {
-    console.log('compomentDiDMount on ShortSentencePRactice');
     await this.getTextToWrite();
+    await this.getTextToRead();
     const { data } = this.state;
 
     this.setState({
       textToWrite: data[0][0].normalize('NFD'),
       textToWriteNotNormalized: data[0][0],
-      textCountX: 0,
-      textCountY: 1,
+      textCountX: 1,
+      textCountY: 0,
     });
   }
 
   async getTextToWrite() {
-    const data = await window.fetch('http://3.133.156.53:5000/sample');
+    const data = await window.fetch('http://localhost:5000/sample/short'); // 3.133.156.53:5000
     const parseData = await data.json();
     this.setState({
       data: parseData,
     });
   }
 
+  async getTextToRead() {
+    const data = await window.fetch('http://localhost:5000/sample/shortEN'); // 3.133.156.53:5000
+    const parseData = await data.json();
+    this.setState({
+      dataEn: parseData,
+      textToRead: parseData[0][0],
+    });
+  }
+
   async scoring(speed, typo, totaltime) {
+    const { data, dataEn, textCountX, textCountY } = this.state;
     const score = (speed * 100) / ((typo + 1) * 1.3);
+    this.setState({
+      prevSpeed: speed - this.state.speed,
+      prevTypo: typo - this.state.typo,
+      prevScore: score - this.state.score,
+    });
     this.postingResult(speed, typo, totaltime, score);
 
-    const { data, textCountX, textCountY } = this.state;
-
-    this.setState({
-      textCountY: textCountY + 1,
-    });
-    if (!data[textCountX][textCountY + 1]) {
-      this.setState({
-        textCountX: textCountX + 1,
-        textCountY: 0,
-      });
-      if (!data[textCountX + 1]) {
-        this.setState({
+    textCountX + 1 < data.length
+      ? this.setState({
+          textCountX: textCountX + 1,
+        })
+      : this.setState({
           textCountX: 0,
-          textCountY: 0,
         });
-      }
-    }
 
     this.setState({
       totaltime,
       speed,
       typo,
       score,
-      textToWrite: data[textCountX][textCountY].normalize('NFD'),
-      textToWriteNotNormalized: data[textCountX][textCountY],
+      textToRead: dataEn[textCountX][0],
+      textToWrite: data[textCountX][0].normalize('NFD'),
+      textToWriteNotNormalized: data[textCountX][0],
     });
 
     document.querySelector('.inputType').value = null;
@@ -93,7 +105,8 @@ export default class ShortSentencePractice extends Component {
 
     if (loginComplete) {
       window
-        .fetch('http://3.133.156.53:5000/typeInformation/id', {
+        .fetch('http://3.133.156.53:5000typeInformation/id', {
+          // 3.133.156.53:5000
           method: 'POST',
           body: JSON.stringify(result),
           headers: {
@@ -109,11 +122,15 @@ export default class ShortSentencePractice extends Component {
 
   render() {
     const {
+      textToRead,
       textToWrite,
       textToWriteNotNormalized,
       score,
       speed,
       typo,
+      prevScore,
+      prevSpeed,
+      prevTypo,
     } = this.state;
 
     return (
@@ -124,11 +141,15 @@ export default class ShortSentencePractice extends Component {
               speed={speed}
               typo={typo}
               score={score}
+              prevScore={prevScore}
+              prevSpeed={prevSpeed}
+              prevTypo={prevTypo}
               style={{ textAlign: 'center' }}
             />
           </p>
           <p>
             <PracticeScreen
+              textToRead={textToRead}
               textToWrite={textToWrite}
               scoring={this.scoring}
               postingResult={this.postingResult}

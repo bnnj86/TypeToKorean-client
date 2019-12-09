@@ -2,6 +2,10 @@
 
 Touch Typing 원리에 기반한 외국인 대상의 한글 타자 연습 및 한국어 교육 웹 플랫폼입니다. 
 Codestates IM 15 2 Weeks Project
+make by Team Name Trio.
+
+https://github.com/codestates/TypeToKorean-client (Type To Korean client)
+https://github.com/codestates/TypeToKorean-server ( Type To Korean server )
 
 
 ## Available Scripts
@@ -40,3 +44,13 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## `skills`
+
+HTML, React, React-router, antDesign, chart.js, AWS S3
+
+## `How to use`
+
+npm install
+chart.js install
+react-router install

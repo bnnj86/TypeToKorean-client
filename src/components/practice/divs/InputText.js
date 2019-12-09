@@ -1,16 +1,28 @@
 import React from 'react';
+import { Input } from 'antd';
 
 export default class InputText extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       speedStart: 0,
-      infoMsg: 'Welcome To TypeToKorean',
+      infoMsg:
+        'Welcome To TypeToKorean! 텍스트를 모두 작성하고 스페이스를 눌러주세요.',
     };
 
     this.handleEvent = this.handleEvent.bind(this);
     this.handleSpace = this.handleSpace.bind(this);
     this.checkTypo = this.checkTypo.bind(this);
+  }
+
+  componentDidMount() {
+    const { textToRead } = this.props;
+    // setTimeout(
+    //   this.setState({
+    //     infoMsg: textToRead,
+    //   }),
+    //   1000,
+    // );
   }
 
   handleEvent(event) {
@@ -103,17 +115,34 @@ export default class InputText extends React.Component {
 
   render() {
     const { infoMsg } = this.state;
+    const { textToRead } = this.props;
 
     return (
       <div>
         <div className="control">
-          <div className="ant-card-bordered">{infoMsg}</div>
-          <input
-            style={{ width: '100%' }}
-            className="inputType"
-            onKeyDown={this.handleEvent}
-            onKeyUp={this.handleSpace}
-          />
+          <div
+            className="ant-card-bordered"
+            style={{
+              height: 'auto',
+              lineHeight: 'normal',
+              padding: '.8em .5em',
+            }}
+          >
+            {textToRead || infoMsg}
+          </div>
+          <div>
+            <input
+              style={{
+                width: '100%',
+                height: '5vh',
+                padding: '.8em .5em',
+              }}
+              className="ant-input inputType"
+              placeholder="이곳에서 한글 타자 연습을 시작하세요!"
+              onKeyDown={this.handleEvent}
+              onKeyUp={this.handleSpace}
+            />
+          </div>
         </div>
       </div>
     );

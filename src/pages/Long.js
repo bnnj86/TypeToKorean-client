@@ -14,7 +14,9 @@ export default class Long extends Component {
         <p>
           <LongSentencePractice />
         </p>
-        <p>{/*<ReadMe />*/}</p>
+        <p>
+          <ReadMe />
+        </p>
       </div>
     );
   }

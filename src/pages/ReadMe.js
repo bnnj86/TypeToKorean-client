@@ -11,96 +11,83 @@ export default class ReadMe extends Component {
   render() {
     return (
       <div>
-        <Card
-          title="타자 연습을 통한 한국어 공부"
-          extra={<a href="#">More</a>}
-          style={{ width: 900 }}
-        >
-          Thank you for choosing our Hangul Education Project, TypeToKorea. You
-          will learn how to type Korean here. However, it's not only about
-          learning Hangul Typing, but also about learning basic Korean naturally
-          and intuitively via Hangul Typing. Don't Learn Koean by Textbook in
-          boring way, We, TypeToKorean will be responsoble to let you understand
-          Korean! 여러분은 앞으로 Type To Korean 에서 한국어 타자연습을 진행하게
-          됩니다. 한국어 타자연습은 여러분의 타자연습 뿐 아니라, 한국어를
-          공부하게 됩니다. Team TypeToKorea와 함께 기존 지루한 암기식 언어
-          공부에서 벗어나서 다양한 한국어 컨텐츠와 함께 공부할까요?
+        <Card title="타자 연습을 통한 한국어 공부">
+          <p>
+            Thank you for choosing our Hangul Education Project, TypeToKorea.
+            You will learn how to type Korean here. However, it's not only about
+            learning Hangul Typing, but also about learning basic Korean
+            naturally and intuitively via Hangul Typing. Don't Learn Koean by
+            Textbook in boring way! We, TypeToKorean will be responsoble to let
+            you understand Korean!
+          </p>
+          <p>
+            여러분은 앞으로 Type To Korean 에서 한국어 타자연습을 진행하게
+            됩니다. 한국어 타자연습은 여러분의 타자연습 뿐 아니라, 한국어를
+            공부하게 됩니다. Type To Korean과 함께 기존 지루한 암기식 언어
+            공부에서 벗어나서 다양한 한국어 컨텐츠와 함께 공부할까요?
+          </p>
         </Card>
-        <Card
-          title="What Is Touch Typing?"
-          extra={<a href="#">More</a>}
-          style={{ width: 900 }}
-        >
-          Touch typing is the ability to use muscle memory to find keys fast,
-          without using the sense of sight, and with all the available fingers,
-          just like piano players do. It significantly improves typing speed and
-          eliminates errors. Touch typing simply makes you more productive and
-          it is a skill worth learning. However, many people engage in the bad
-          habit of ‘hunt-and-peck’ typing, even those seasoned professionals
-          with years and decades of computer experience. It is easy to
-          understand, though, as touch typing requires dedicated practice to
-          learn it well. That is why we created Keybr.com, a free online typing
-          tutorial, to give you the most advanced learning experience and let
-          you develop your typing skills faster. Touch Typing은 손가락 근육의
-          자연스로운 체득을 통해
+        <Card title="Touch Typing은 무엇인가요?">
+          <p>
+            Touch typing is the ability to use muscle memory to find keys fast,
+            without using the sense of sight, and with all the available
+            fingers, just like piano players do. It significantly improves
+            typing speed and eliminates errors. Touch typing simply makes you
+            more productive and it is a skill worth learning.
+          </p>
+          <p>
+            Touch typing은 열 손가락을 모두 사용하여 손가락 근육의 기억 능력을
+            기반으로 시각에 의존하지 않은 타이핑 방식입니다. 마치 피아노를 치는
+            기분을 느끼실 수 있습니다. Touch typing은 타자 속도를 향상시키고
+            오타를 최소화 함으로써 여러분의 업무 효율을 극대화할 수 있는
+            도구입니다.
+          </p>
         </Card>
-        <Card
-          title=" How Does This Typing Tutor Work?"
-          extra={<a href="#">More</a>}
-          style={{ width: 900 }}
-        >
-          There are several features in Keybr.com that set it apart from most of
-          the typing practice software out there. In short, it employs
-          statistics and smart algorithms to automatically generate typing
-          lessons matching your skills. Lets discuss this in details. First, it
-          does not force you to repeat the same characters over and over again;
-          that is simply slow, boring and contributes very little to your
-          learning. For example, the words like ‘jjf jjk jdd …’ are very
-          unnatural, hard to read and will slow down noticeably even experienced
-          typists. Instead, Keybr.com generates random, but readable and
-          pronounceable words using the phonetic rules of your native language.
-          These words look almost natural, and often they really are. Typing
-          sensible text is much easier than repeating random letters, and it
-          helps you to remember frequent key combinations. The latest point is
-          very important. For example, it’s almost impossible for the letter ‘W’
-          to follow the ‘Z’ in English, and you will never type this combination
-          in Keybr.com. Instead, you will type more common words, such as «the,»
-          «that,» «with,» and so on. And soon you will learn how to type the
-          «th» combo really fast. Second, Keybr.com measures your keystroke
-          dynamics and collects comprehensive typing statistics. For example, it
-          measures your typing speed for each individual key, and uses this data
-          to generate random words putting emphasis on the weakest key. The more
-          troubles you have with a particular key, the more you will be typing
-          it. It means, the generating algorithm will put that letter in every
-          word in the next generated lesson. Your typing skills are re-evaluated
-          after every completed lesson, and the next lesson will be adjusted
-          accordingly. Third, Keybr.com lets you introduce as few keys as
-          possible to the lesson, adding more keys automatically when it decides
-          that you are proficient at the current level. When you only start
-          learning it generates lessons with words from a very small alphabet of
-          the most frequent letters. When your typing speed for every key in
-          that alphabet reaches certain threshold, the algorithm adds the next
-          most frequent letter to the alphabet. And so on, until the next
-          letter. This way you will learn the most frequent letters first, and
-          the least frequent ones later.
+        <Card title="한국어 공부에 도움이 되나요?">
+          <p>
+            Yes, You will learn how to type in Korean, however, this will let
+            you concentrate on Korean text. This will naturally let you read
+            Korean better. We will provide the best Korean text for you to learn
+            Korea. Also, you could use your custom text to practice typing Korea
+            too. Soon, there will be major updates. You will put your favourate
+            K-Pop YouTube Video here, and practice to type their beautiful
+            lyrics. you could get better score if you get to write as fast as
+            they sing!
+          </p>
+          <p>
+            네, 도움이 됩니다! 여러분은 여기서 한국어 타자 능력을 1차적으로
+            향상시키지만, 자연스럽게 한국어를 많이 읽게 됩니다. 타자를 치기
+            위해서는 한국어 독해에 집중하셔야 해서 한국어의 문법과 구조를
+            무의식적으로 파악하시게 될 것입니다. 또한 여러분이 연습하고 싶은
+            한국어 텍스트를 저희 타자연습 프로그램에서 하실 수 있습니다. 당신이
+            가장 좋아하는 K-Pop 유튜브 비디오를 불러와서 가사를 치며 연습할 수
+            있는 기능이 곧 업데이트 예정입니다. 아름다운 가사를 가수보다 더 빨리
+            치실 수 있다면 더 높은 점수를 받을 수 있습니다 !
+          </p>
         </Card>
-        <Card
-          title="Typing Lessons, Is It Really Effective?"
-          extra={<a href="#">More</a>}
-          style={{ width: 900 }}
-        >
-          We selected a few example profiles to show you how people advance in
-          learning touch typing when using Keybr.com. These are real, anonymized
-          user profiles. Hopefully they will inspire you to keep learning!
-          Example 1, from 30 to 70 WPM after 4 hours 20 minutes of practicing in
-          the course of 15 days Example 2, from 35 to 70 WPM after 2 hours and
-          20 minutes of practicing in the course of 12 days Example 3, a decent
-          jump from less than 20 to 40 WPM after 5 hours and 30 minutes of
-          practicing in the course of 11 days Example 4, after 2 hours and 10
-          minutes of practicing in the course of 11 days, typing speed stayed at
-          ~70 WPM (which is already pretty high), but accuracy improved Example
-          5, from 20 to 45 WPM after about 10 hours of practicing in the course
-          of 22 day (yes, sometimes it takes longer)
+        <Card title="연습 데이터는 어떻게 제공받나요?">
+          <p>
+            We also collect your Korean typing practice data which will be
+            custmozied for you, and gives you better typing practice, which not
+            only helps you to reduce Korean typo, but also helps you to learn
+            Koreans too. Our Korean texts are well-curated for forginers to
+            learn basic Korean grammer and context as soon as possible. All of
+            developers are native Koreans, who will be happy to provide the best
+            Korean text all the time for you.
+          </p>
+          <p>
+            Type To Korean은 여러분의 타자 데이터를 축적하여 개인에게 가장
+            적합한 타자 연습 솔루션을 제공할 예정입니다. 한국어 타자의 오타를
+            줄일 뿐만 아니라, 한국어를 배우는데도 도움이 되는 텍스트를
+            준비했습니다. 특히 한국어를 모국어로 하지 않는 외국인이 배우기에
+            최적화되어 있습니다. Type To Korean의 모든 개발자들은 자랑스러운
+            한국인으로써 아름답고 자연스러운 한국어 문장을 제공하기 위해 최신
+            데이터 분석 기술과 개발 스텍을 사용하여 홈페이지를 제작했습니다.
+          </p>
+          <p>
+            More updates comming soon, keep typing!! 앞으로 더 많은 업데이트가
+            있을 예정이니, 자주 찾아주세요!!
+          </p>
         </Card>
       </div>
     );

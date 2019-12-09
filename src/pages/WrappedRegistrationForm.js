@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link, Redirect } from 'react-router-dom';
 import {
   Form,
   Input,
@@ -24,16 +25,22 @@ const { Title } = Typography;
 const AutoCompleteOption = AutoComplete.Option;
 
 class RegistrationForm extends React.Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = { confirmDirty: false, autoCompleteResult: [] };
+  }
+
+  /* state = {
     confirmDirty: false,
     autoCompleteResult: [],
-  };
+  }; */
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         fetch('http://3.133.156.53:5000/signin', {
+          // 3.133.156.53:5000
           method: 'POST',
           body: JSON.stringify(values),
           headers: {

@@ -13,13 +13,47 @@ export default class Stat2 extends React.Component {
       type: 'bar',
       options: {
         maintainAspectRatio: true,
+        legend: {
+          display: true,
+        },
+        tooltips: {
+          enabled: false,
+        },
         scales: {
           yAxes: [
             {
+              display: true,
               ticks: {
                 min: 0,
-                max: 100,
+                max: Math.max.apply(null, this.props.data.map(d => d.value)),
               },
+            },
+          ],
+          xAxes: [
+            {
+              display: true,
+              barPercentage: 1.0,
+              categoryPercentage: 1.0,
+              gridLines: {
+                display: false,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Average Speed',
+              },
+            },
+          ],
+        },
+        annotation: {
+          annotations: [
+            {
+              drawTime: 'afterDatasetsDraw',
+              type: 'line',
+              mode: 'vertical',
+              scaleID: 'y-axis-0',
+              value: '100',
+              borderColor: 'red',
+              borderWidth: 5,
             },
           ],
         },
@@ -35,6 +69,7 @@ export default class Stat2 extends React.Component {
         ],
       },
     });
+    console.log(this.myChart);
   }
 
   componentDidUpdate() {

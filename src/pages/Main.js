@@ -20,7 +20,9 @@ export default class Main extends Component {
             loginComplete={loginComplete}
           />
         </p>
-        <p>{/*<ReadMe />*/}</p>
+        <p>
+          <ReadMe />
+        </p>
       </div>
     );
   }

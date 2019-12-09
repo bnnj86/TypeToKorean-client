@@ -1,14 +1,14 @@
 import React from 'react';
 import { Statistic, Row, Col, Button } from 'antd';
 
-export default function SpeedDiv({ speed }) {
+export default function SpeedDiv({ speed, prevSpeed }) {
   return (
     <Row>
       <Col>
         <Statistic title="Speed" value={Math.round(speed)} />
       </Col>
       <Col>
-        <Statistic title="Gain" value={5227} precision={0} />
+        <Statistic title="Gain" value={Math.round(prevSpeed)} />
       </Col>
     </Row>
   );

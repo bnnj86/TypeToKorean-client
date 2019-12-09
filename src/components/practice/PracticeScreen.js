@@ -17,11 +17,14 @@ export default class PracticeScreen extends Component {
       postingResult,
       textToWriteNotNormalized,
       getTextToWrite,
+      textToRead,
     } = this.props;
     return (
       <Card>
         <TextToWrite textToWrite={textToWrite} />
+
         <InputText
+          textToRead={textToRead}
           textToWrite={textToWrite}
           scoring={scoring}
           postingResult={postingResult}
